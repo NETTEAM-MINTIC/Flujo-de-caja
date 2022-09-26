@@ -28,19 +28,19 @@ public class Enterprise {
     private String address;
 
     //Inyección de dependencias
-/*
-    @OneToMany (mappedBy = "id", fetch = FetchType.LAZY)
-    private List<User> users; //es el mismo Employee
 
-    //@OneToOne
-    //@JoinColumn(name = "user_id")
+   // @OneToMany (mappedBy = "id", fetch = FetchType.LAZY)
+    //private List<User> users; //es el mismo Employee
+
+  //  @OneToOne
+    //JoinColumn(name = "user_id")
 
 
     //@Column(name = "transaction")
     //El mappedBy, es importante que el nombre coincida con el de la BD?
-    @OneToMany (mappedBy = "id", fetch = FetchType.LAZY)
-    private List<Transaction> transactions;
-*/
+//    @OneToMany (mappedBy = "id", fetch = FetchType.LAZY)
+  //  private List<Transaction> transactions;
+
     @Column(name = "created_at")
     private Date created_at;
 

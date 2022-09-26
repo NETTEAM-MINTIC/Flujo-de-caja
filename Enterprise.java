@@ -1,4 +1,4 @@
-package com.example.appWebGraddle;
+/*package com.example.appWebGraddle;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -100,3 +100,4 @@ public class Enterprise {
         this.updatedAt = updatedAt;
     }
 }
+*/
