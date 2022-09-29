@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Gestor</title>
+</head>
+<body>
+<main class="d-flex flex-nowrap">
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <ul class="nav nav-pills flex-column mb-auto align-items-center">
+                <li class="nav-item">
+                    <img src="/img/logo.png" class="display-block mx-auto mb-4" height="100" alt="ícono inicio"/>
+                </li>
+                <li class="nav-item">
+                    <span class="fs-4">Administrador Net Team</span>
+                </li>
+
+            </ul>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto align-items-center">
+            <li class="nav-item py-2">
+                <a type="button" class="btn btn-secondary btn-lg px-4 gap-5" th:href=@{/movimientoos}>
+                    Ingresos y Egresos
+                </a>
+            </li>
+            <li class="nav-item py-2">
+                <a type="button" class="btn btn-secondary btn-lg px-4 gap-5" th:href=@{/usuarioos}>
+                    Usuarios
+                </a>
+            </li>
+            <li class="nav-item py-2">
+                <a type="button" class="btn btn-secondary btn-lg px-4 gap-5" th:href=@{/empresas}>
+                    Empresas
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <div class="my-5">
+            <h1 class="display-5 fw-bold mb-4"> Sistema de gestión de Recursos</h1>
+        </div>
+        <div class="container">
+            <h2> Empresas </h2>
+
+            <!--Creamos un boton para crear un movimiento -->
+            <button type="button" class="btn btn-info"><a th:href="@{/empresas/nueva}">Nueva</a></button>
+
+            <!--Dibujamos el encabezado de la tabla -->
+            <br>
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+
+                <!-- Llenamos la tabla dibujada -->
+                <tr th:each="varEmpresa : ${empresas}" >
+                    <td th:text="${varEmpresa.name}"></td>
+                    <td th:text="${varEmpresa.address}"></td>
+                    <td th:text="${varEmpresa.phone}"></td>
+                    <td><button type="button" class="btn btn-warning"><a th:href="@{/EditarEmpresa}">Editar</a></button> </td>
+                    <td>
+                        <form th:method="delete" th:action="@{/empresa/{id}(id=${varEmpresa.id})}">
+                            <button type="submit" class="btn btn-danger">Eliminar empresa</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+</html>

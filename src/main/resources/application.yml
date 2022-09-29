@@ -1,0 +1,17 @@
+# src/main/resources/application.yml
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: uiY3u7e76CEa9gPRwz7sohrZHDVs26Xt #independiente para cada aplicación
+            client-secret: UU_JN6bNaCvsCsW58V_TKeZS2YZFRNNVaBHDIXY0J2_3UkV_SiRD3LuSWyoYyiP_ #se encuentra en el dettings de Auth0 independiente para cada aplicación
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://dev-isaxls1t.us.auth0.com/

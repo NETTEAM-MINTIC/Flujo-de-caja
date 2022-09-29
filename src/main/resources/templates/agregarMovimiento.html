@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdm.bootstrapcdn.com/bootstrap/3.4.1/ccs/bootstrap.min.ccs">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Formulario</title>
+    <style>
+        a{
+        color:white;
+        }
+        a:hover {
+        color:black;
+        text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+<main class="d-flex flex-nowrap">
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <ul class="nav nav-pills flex-column mb-auto align-items-center">
+                <li class="nav-item">
+                    <img src="/img/logo.png" class="display-block mx-auto mb-4" height="100" alt="ícono inicio"/>
+                </li>
+                <li class="nav-item">
+                    <span class="fs-4">Administrador Net Team</span>
+                </li>
+
+            </ul>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto align-items-center">
+            <li class="nav-item py-2">
+                <a type="button" class="btn btn-secondary btn-lg px-4 gap-5" th:href=@{/movimientoos}>
+                    Ingresos y Egresos
+                </a>
+            </li>
+            <li class="nav-item py-2">
+                <a type="button" class="btn btn-secondary btn-lg px-4 gap-5" th:href=@{/usuarioos}>
+                    Usuarios
+                </a>
+            </li>
+            <li class="nav-item py-2">
+                <a type="button" class="btn btn-secondary btn-lg px-4 gap-5" th:href=@{/empresas}>
+                    Empresas
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1> Por favor agregar datos del movimiento </h1>
+        <br>
+        <!-- Crea el formilario para guardar los movimientos en movimientoos-->
+        <form th:action="@{/guardarmovimiento}" th:object="${movimiento}" method="post">
+
+            <!-- Campo para concepto-->
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-3" for="concepto">Concepto del movimiento:</label>
+                    <div class="col-md-6">
+                        <input type="text" th:field="*{concepto}" class="form-control" id="concepto" required="required">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-3" for="cantidad">Cantidad del movimiento:</label>
+                    <div class="col-md-6">
+                        <input type="text" th:field="*{cantidad}" class="form-control" id="cantidad" required="required">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Con este botón podemos enviar la información del formulario-->
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-success">Crear movimiento</button>
+                </div>
+            </div>
+
+        </form>
+
+        <br>
+        <a href="javascript: history.go(-1)" class="btn btn-info" role="button">Atras</a>
+    </div>
+
+</main>
+
+</body>
+</html>
